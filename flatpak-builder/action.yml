@@ -83,6 +83,10 @@ inputs:
       "Whether to upload the resulting bundle or not as an artifact"
     required: false
     default: "true"
+  subject:
+    description: >
+      One line subject for the commit message. Used when exporting the build results.
+    required: false
 runs:
   using: "node20"
   main: "dist/index.js"

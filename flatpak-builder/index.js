@@ -60,6 +60,8 @@ class Configuration {
     this.verbose = core.getBooleanInput('verbose')
     // Upload the artifact
     this.uploadArtifact = core.getBooleanInput('upload-artifact')
+    // One line subject for the commit message
+    this.subject = core.getInput('subject')
   }
 
   async cacheKey () {
@@ -240,6 +242,9 @@ const build = async (manifest, manifestPath, cacheHitKey, config) => {
   }
   if (config.verbose) {
     args.push('--verbose')
+  }
+  if (config.subject) {
+    args.push(`--subject=${config.subject}`)
   }
   args.push(config.buildDir, manifestPath)
 
