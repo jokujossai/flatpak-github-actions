@@ -87,6 +87,10 @@ inputs:
     description: >
       One line subject for the commit message. Used when exporting the build results.
     required: false
+  body:
+    description: >
+      Full description for the commit message. Used when exporting the build results.
+    required: false
 runs:
   using: "node20"
   main: "dist/index.js"

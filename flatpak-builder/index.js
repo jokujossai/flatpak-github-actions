@@ -62,6 +62,8 @@ class Configuration {
     this.uploadArtifact = core.getBooleanInput('upload-artifact')
     // One line subject for the commit message
     this.subject = core.getInput('subject')
+    // Full description for the commit message
+    this.body = core.getInput('body')
   }
 
   async cacheKey () {
@@ -245,6 +247,9 @@ const build = async (manifest, manifestPath, cacheHitKey, config) => {
   }
   if (config.subject) {
     args.push(`--subject=${config.subject}`)
+  }
+  if (config.body) {
+    args.push(`--body=${config.body}`)
   }
   args.push(config.buildDir, manifestPath)
 
